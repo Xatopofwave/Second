@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>无标题</title>
+
+<style type="text/css">
+    html,body{
+        width:100%;
+        height:100%;
+    }
+    ul{
+        list-style: none;
+        padding-left: 0;
+    }
+    #top{
+        width: 100%;
+        height: 18%;
+        background-color:aquamarine;
+    }
+	#top li{
+        width:80px;
+        height: 30px;
+        line-height: 30px;
+        float: left;
+        margin-left: 0;
+        cursor: pointer;
+        text-align: center;
+    }
+    #top li:hover{
+        background-color: beige;
+    }
+    
+    #top h2{
+        width: 100%;
+        margin: 0;
+        text-align: center;
+    }
+    #top input{
+        width:99%;
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+    img{
+        float: left;
+        display: block;
+        width: 30px;
+        height: 50%; 
+        text-align: center;
+        margin: 0 auto;
+        float: left;
+        position: relative;
+        cursor: pointer;
+    }
+    #cent{
+        width: 500px;
+        margin-top: 50px;
+    }
+    .friend{
+        width:100%;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+    }
+    .friend:hover{
+        background-color: antiquewhite;
+    }
+    .friend ul{
+        margin-bottom: 0;
+        margin-top: 0;
+        display: none;
+    }
+    .friend div{
+        height: 10px;
+
+    }
+    .friend h2{
+        margin: 0;
+    }
+    a{
+        float: left;
+        display: block;
+        width: 20px;
+        text-align: center;
+        text-decoration: none;
+    }
+    .down{
+        display: none;
+    }
+    #cent{
+        margin: 0;
+    }
+</style>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script>
+    function showMenu(obj){
+        $(obj).siblings("ul").slideToggle();
+        $(obj).parent().children(".down").show();
+        $(obj).parent().children(".up").hide();
+    }
+    function hideMenu(obj){
+        $(obj).siblings("ul").slideToggle();
+        $(obj).parent().children(".down").hide();
+        $(obj).parent().children(".up").show();
+    }
+</script>
+</head>
+<body>
+    <div id ="top">
+        <input  type="text" placeholder="搜索"/>
+        <h2>联系人</h2>
+        <ul>
+            <li>好友</li>
+            <li>群聊</li>
+            <li>多人聊天</li>
+        </ul>
+    </div>
+    <div id="cent">
+        <div class="friend">
+            <a href="javascript:;" class="up" onclick="showMenu(this)">></a>
+            <a href="javascript:;" class="down" onclick="hideMenu(this)">∨</a>
+            <h2 id="newFriend" onclick="showMenu(this)">新朋友</h2>
+            <ul>
+                <li>韩士斌</li>
+                <li>阳妍</li>
+                <li>李小璐</li>
+            </ul>
+        </div>
+        <div class="friend">
+            <a href="javascript:;" class="up" onclick="showMenu(this)">></a>
+            <a href="javascript:;" class="down" onclick="hideMenu(this)">∨</a>
+            <h2 id="oldFriend" onclick="showMenu(this)">老朋友</h2>
+            <ul>
+                <li>韩士斌</li>
+                <li>阳妍</li>
+                <li>李小璐</li>
+            </ul>
+        </div>
+        <div class="friend">
+            <a href="javascript:;" class="up" onclick="showMenu(this)">></a>
+            <a href="javascript:;" class="down" onclick="hideMenu(this)">∨</a>
+            <h2 id="care" onclick="showMenu(this)">特别关心</h2>
+            <ul>
+                <li>韩士斌</li>
+                <li>阳妍</li>
+                <li>李小璐</li>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.smartmenus.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width:100%;
+            height: 100%;
+        }
+        .nav input{
+            width: 100%
+        }
+        .nav h2{
+            width: 100%;
+            text-align: center;
+        }
+        .nav li{
+            list-style: none;
+            float: left;
+            width: 10%;
+            height: 30px;
+            line-height: 30px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .nav li:hover{
+            background-color: gray;
+        }
+        .nav{
+            height: 15%;
+            background-color:rgb(0, 252, 176);
+        }
+        .info div{
+            display: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .friend ul{
+            display: none;
+            padding-left: 15px;
+            list-style: none;
+        }
+        .friend p{
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: left;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .friend label{
+            cursor: pointer;
+        }
+        .friend p:hover{
+            background-color: aquamarine;
+        }
+        .info .friend{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <input type="text" placeholder="搜索">
+        <h2>联系人</h2>
+        <ul>
+            <li>好友</li>
+            <li>群聊</li>
+            <li>多人聊天</li>
+        </ul>
+    </div>
+    <div class="info">
+        <div class="friend">
+            <p><label for="aa"><a href="#">></a><em>高中同学</em> </label></p>
+            <ul id="aa">
+                <li>韩士斌</li>
+                <li>阳妍11</li>
+                <li>李小璐</li>
+            </ul>
+            <p><label for="bb"><a href="#">></a><em>大学同学</em></label></p> 
+            <ul id="bb">
+                <li>韩士斌</li>
+                <li>阳妍33</li>
+                <li>李小璐</li>
+            </ul>
+            <p><label for="cc"><a href="#">></a><em>同事</em></label></p> 
+            <ul id="cc">
+                <li>韩士斌</li>
+                <li>阳妍55</li>
+                <li>李小璐</li>
+            </ul>
+
+        </div>
+        <div class="group">
+            11
+        </div>
+        <div class="chat">
+            22
+        </div>
+    </div>
+    <script>
+        $(".nav li").click(function(){
+            var _index=$(this).index();
+            $(".info>div").eq(_index).show().siblings().hide();
+        })
+        $(".friend p").click(function(){
+            var _index=$(this).index();
+            var id="#"+$(this).children("label").attr("for"); 
+            $(id).slideToggle();
+            if($(this).find("a").text()==">"){
+                $(this).find("a").remove();
+                $(this).find("em").before("<a>∨</a>")
+            }else if($(this).find("a").text()=="∨"){
+                $(this).find("a").remove();
+                $(this).find("em").before("<a>></a>")
+            }
+        })
+        $(".info").mousedown(function(e){
+            if(e.button==2){
+                var data=[
+                    [{
+                        text:'添加分组',
+                        func:function(){
+                            console.log(1)
+                        }
+                    }]
+
+                ]
+                $(".info").smartmenus(data,{name:"info"})
+            }
+        })
+    </script>
+</body>
+</html>
